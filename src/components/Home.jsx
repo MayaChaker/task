@@ -4,6 +4,7 @@ function Home() {
   const email = localStorage.getItem("email");
   const isAdmin = localStorage.getItem("isAdmin") === "true";
   const [users, setUser] = useState([]);
+
   useEffect(() => {
     if (isAdmin) {
       const storedUser = JSON.parse(localStorage.getItem("users"));

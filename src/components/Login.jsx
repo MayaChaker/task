@@ -6,9 +6,10 @@ import { Link } from "react-router-dom";
 
 function Login() {
   const [data, setData] = useState({
-    email: "",
-    password: "",
+    email: "eve.holt@reqres.in",
+    password: "cityslicka",
   });
+
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [user, setUser] = useState({
@@ -24,25 +25,49 @@ function Login() {
     e.preventDefault();
     setError("");
     if (data.email === "admin@example.com") {
-      const res = await axios.get("https://reqres.in/api/users");
+      const res = await axios.get(
+        "https://reqres.in/api/users",
+        {
+          email: "admin@example.com",
+          password: "adminpass",
+        },
+        {
+          headers: {
+            "x-api-key": "reqres-free-v1",
+          },
+        }
+      );
       localStorage.setItem("users", JSON.stringify(res.data.data));
       localStorage.setItem("email", data.email);
+      localStorage.setItem("isAdmin", "true");
+    } else {
+      localStorage.setItem("isAdmin", "false");
     }
 
     try {
       setLoading(true);
-      const res = await axios.post("https://reqres.in/api/login", {
-        email: data.email,
-        password: data.password,
-      });
+      console.log(import.meta.env.VITE_API_KEY);
+      const res = await axios.post(
+        "https://reqres.in/api/login",
+        {
+          email: data.email,
+          password: data.password,
+        },
+        {
+          headers: {
+            "x-api-key": "reqres-free-v1",
+          },
+        }
+      );
+
       console.log(res.data);
 
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("email", data.email);
       navigate("/home");
     } catch (error) {
-      setError("Failed to login");
-      console.log(error);
+      console.log("Login Error");
+      setError(error);
     }
     setLoading(false);
   }

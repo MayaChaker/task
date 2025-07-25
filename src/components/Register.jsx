@@ -8,8 +8,8 @@ function Register() {
   const [data, setData] = useState({
     FirstName: "",
     username: "",
-    email: "",
-    password: "",
+    email: "eve.holt@reqres.in",
+    password: "pistol",
   });
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -20,10 +20,18 @@ function Register() {
 
     try {
       setLoading(true);
-      const res = await axios.post("https://reqres.in/api/register", {
-        email: data.email,
-        password: data.password,
-      });
+      const res = await axios.post(
+        "https://reqres.in/api/register",
+        {
+          email: data.email,
+          password: data.password,
+        },
+        {
+          headers: {
+            "x-api-key": "reqres-free-v1",
+          },
+        }
+      );
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("email", data.email);
       navigate("/home");

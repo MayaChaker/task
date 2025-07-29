@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 
 function Login() {
   const [data, setData] = useState({
-    email: "eve.holt@reqres.in",
-    password: "cityslicka",
+    email: "",
+    password: "",
   });
 
   const [error, setError] = useState("");
@@ -62,7 +62,7 @@ function Login() {
 
       console.log(res.data);
 
-      localStorage.setItem("token", res.data.token);
+      document.cookie = `token=${res.data.token}`;
       localStorage.setItem("email", data.email);
       navigate("/home");
     } catch (error) {

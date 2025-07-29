@@ -8,8 +8,8 @@ function Register() {
   const [data, setData] = useState({
     FirstName: "",
     username: "",
-    email: "eve.holt@reqres.in",
-    password: "pistol",
+    email: "",
+    password: "",
   });
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -32,7 +32,7 @@ function Register() {
           },
         }
       );
-      localStorage.setItem("token", res.data.token);
+      document.cookie = `token=${res.data.token}`;
       localStorage.setItem("email", data.email);
       navigate("/home");
     } catch (error) {

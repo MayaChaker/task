@@ -25,8 +25,8 @@ function Home() {
   }
   return (
     <div className="outer">
-      <div className="dot"></div>
       <div className="card">
+        <div className="dot"></div>
         <div className="ray"></div>
         <div className="text">WELCOME</div>
         <div className="user-email">{email}</div>

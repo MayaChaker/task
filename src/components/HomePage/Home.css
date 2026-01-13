@@ -36,24 +36,24 @@ body {
 
 @keyframes moveDot {
   0% {
-    top: 10%;
-    right: 10%;
+    top: 0;
+    right: 0;
   }
   25% {
-    top: 10%;
-    right: calc(90% - 6px);
+    top: 0;
+    right: calc(100% - 6px);
   }
   50% {
-    top: calc(90% - 6px);
-    right: calc(90% - 6px);
+    top: calc(100% - 6px);
+    right: calc(100% - 6px);
   }
   75% {
-    top: calc(90% - 6px);
-    right: 10%;
+    top: calc(100% - 6px);
+    right: 0;
   }
   100% {
-    top: 10%;
-    right: 10%;
+    top: 0;
+    right: 0;
   }
 }
 

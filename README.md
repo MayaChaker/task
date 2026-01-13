@@ -1,12 +1,52 @@
-# React + Vite
+# Basic User Flow
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a React application built with Vite that demonstrates a basic user authentication flow, including Login, Register, and a protected Home page with a dashboard-style UI.
 
-Currently, two official plugins are available:
+## Prerequisites
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Before you begin, ensure you have **Node.js** installed on your machine. You can download it from [nodejs.org](https://nodejs.org/).
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Follow these steps to get the project up and running on your local machine.
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/MayaChaker/basic-user-flow.git
+cd basic-user-flow
+```
+
+### 2. Install Dependencies
+
+Install the necessary project dependencies using npm:
+
+```bash
+npm install
+```
+
+### 3. Run the Development Server
+
+Start the local development server:
+
+```bash
+npm run dev
+```
+
+After running this command, you will see a local URL (usually `http://localhost:5173`). Open this URL in your browser to view the application.
+
+## Build for Production
+
+To build the application for production, run:
+
+```bash
+npm run build
+```
+
+## Tech Stack
+
+*   **React** - UI Library
+*   **Vite** - Build tool
+*   **React Router** - Navigation
+*   **Axios** - HTTP Client
+*   **CSS** - Styling (Glassmorphism & Animations)

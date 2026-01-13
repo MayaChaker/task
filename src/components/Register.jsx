@@ -52,7 +52,13 @@ function Register() {
     <div className="container">
       <form className="form" onSubmit={handleSubmit}>
         <div className="form_front">
-          <div className="form_details">Register</div>
+          <div
+            className="form_details"
+            onClick={() => navigate("/home")}
+            style={{ cursor: "pointer" }}
+          >
+            Register
+          </div>
 
           <input
             name="FirstName"

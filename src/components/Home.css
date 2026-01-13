@@ -1,107 +1,246 @@
-/* From Uiverse.io by Spacious74 */
+/* Enhanced Elegant Dark Theme */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap");
+
 body {
-  background-color: #131212;
+  background-color: #0c0d0d;
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+  overflow: hidden;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
 .outer {
-  border-radius: 0px;
-  padding: 0px;
-  background: radial-gradient(circle 230px at 0% 0%, #ffffff, #0c0d0d);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #000000 100%);
   position: relative;
 }
 
 .dot {
-  width: 5px;
-  aspect-ratio: 1;
+  width: 6px;
+  height: 6px;
   position: absolute;
   background-color: #fff;
-  box-shadow: 0 0 10px #ffffff;
-  border-radius: 100px;
-  z-index: 2;
-  right: 10%;
-  top: 10%;
-  animation: moveDot 6s linear infinite;
+  box-shadow: 0 0 15px #ffffff, 0 0 30px #ffffff;
+  border-radius: 50%;
+  z-index: 10;
+  animation: moveDot 8s linear infinite;
 }
 
 @keyframes moveDot {
-  0%,
-  100% {
+  0% {
     top: 10%;
     right: 10%;
   }
   25% {
     top: 10%;
-    right: calc(100% - 35px);
+    right: calc(90% - 6px);
   }
   50% {
-    top: calc(100% - 30px);
-    right: calc(100% - 35px);
+    top: calc(90% - 6px);
+    right: calc(90% - 6px);
   }
   75% {
-    top: calc(100% - 30px);
+    top: calc(90% - 6px);
+    right: 10%;
+  }
+  100% {
+    top: 10%;
     right: 10%;
   }
 }
 
 .card {
-  z-index: 1;
-  width: 90vw;
-  height: 90vh;
-  border-radius: 0px;
-  border: solid 1px #202222;
-  background-size: 30px 30px;
-  background: radial-gradient(circle 280px at 0% 0%, #444444, #0c0d0d);
+  z-index: 5;
+  width: 80vw;
+  max-width: 1000px;
+  height: 70vh;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  background: rgba(20, 20, 20, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
   flex-direction: column;
   color: #fff;
-  left: 50px;
+  position: relative;
+  overflow: hidden;
 }
-.ray {
-  width: 50px;
-  height: 5px;
-  border-radius: 100px;
+
+/* Background texture for the card */
+.card::before {
+  content: "";
   position: absolute;
-  background-color: #c7c7c7;
-  opacity: 0.4;
-  box-shadow: 0 0 50px #fff;
-  filter: blur(10px);
-  transform-origin: 10%;
-  top: 0%;
+  top: 0;
   left: 0;
-  transform: rotate(40deg);
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  z-index: -1;
+  opacity: 0.5;
+}
+
+.ray {
+  width: 150px;
+  height: 200%;
+  position: absolute;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.05),
+    transparent
+  );
+  transform: rotate(45deg);
+  animation: rayMove 10s infinite linear;
+  pointer-events: none;
+}
+
+@keyframes rayMove {
+  0% {
+    transform: rotate(45deg) translate(-200%, -50%);
+  }
+  100% {
+    transform: rotate(45deg) translate(200%, -50%);
+  }
 }
 
 .card .text {
-  font-weight: bolder;
-  font-size: 4rem;
-  background: linear-gradient(45deg, #000000 4%, #fff, #000);
+  font-weight: 700;
+  font-size: 5rem;
+  letter-spacing: 5px;
+  background: linear-gradient(135deg, #ffffff 0%, #a5a5a5 50%, #505050 100%);
+  -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  margin-bottom: 10px;
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+}
+
+.user-email {
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 1px;
+  margin-bottom: 40px;
 }
 
 .line {
-  width: 100%;
-  height: 1px;
   position: absolute;
-  background-color: #2c2c2c;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: all 0.5s ease;
 }
+
 .topl {
   top: 10%;
-  background: linear-gradient(90deg, #888888 30%, #1d1f1f 70%);
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.5),
+    transparent
+  );
 }
+
 .bottoml {
   bottom: 10%;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.5),
+    transparent
+  );
 }
+
 .leftl {
   left: 10%;
+  top: 10%;
+  bottom: 10%;
   width: 1px;
-  height: 100%;
-  background: linear-gradient(180deg, #747474 30%, #222424 70%);
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(255, 255, 255, 0.5),
+    transparent
+  );
 }
+
 .rightl {
   right: 10%;
+  top: 10%;
+  bottom: 10%;
   width: 1px;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(255, 255, 255, 0.5),
+    transparent
+  );
+}
+
+.elegant-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  padding: 15px 50px;
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  border-radius: 50px;
+  backdrop-filter: blur(5px);
+  z-index: 20;
+}
+
+.elegant-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
   height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.elegant-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  letter-spacing: 5px;
+}
+
+.elegant-btn:hover::before {
+  left: 100%;
+}
+
+.elegant-btn:active {
+  transform: scale(0.95);
 }

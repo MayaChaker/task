@@ -76,7 +76,13 @@ function Login() {
     <div className="container">
       <form className="form" onSubmit={handleSubmit}>
         <div className="form_front">
-          <div className="form_details">Login</div>
+          <div
+            className="form_details"
+            onClick={() => navigate("/home")}
+            style={{ cursor: "pointer" }}
+          >
+            Login
+          </div>
           <input
             name="email"
             placeholder="email"

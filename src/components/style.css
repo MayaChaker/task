@@ -1,134 +1,171 @@
-/* From Uiverse.io by AmIt-DasIT */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
 body {
-  background-color: #212121;
+  background-color: #0c0d0d;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
 }
+
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #000000 100%);
+  position: relative;
+}
+
+/* Add a subtle background animation/texture */
+.container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 50px 50px;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transform-style: preserve-3d;
-  transition: all 1s ease;
-  padding: 450px;
-  background-color: #212121;
-  top: 350px;
-}
-
-.form .form_front {
+  position: relative;
+  z-index: 10;
+  background: rgba(20, 20, 20, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 50px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  gap: 20px;
-  position: absolute;
-  backface-visibility: hidden;
-  padding: 65px 45px;
-  border-radius: 15px;
-  box-shadow: inset 2px 2px 10px rgba(0, 0, 0, 1),
-    inset -1px -1px 5px rgba(255, 255, 255, 0.6);
+  gap: 25px;
+  width: 100%;
+  max-width: 400px;
 }
 
-.form .form_back {
+.form_front {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   gap: 20px;
-  position: absolute;
-  backface-visibility: hidden;
-  transform: rotateY(-180deg);
-  padding: 65px 45px;
-  border-radius: 15px;
-  box-shadow: inset 2px 2px 10px rgba(0, 0, 0, 1),
-    inset -1px -1px 5px rgba(255, 255, 255, 0.6);
+  width: 100%;
 }
 
 .form_details {
-  font-size: 25px;
-  font-weight: 600;
-  padding-bottom: 10px;
-  color: white;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #ffffff 0%, #a5a5a5 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-transform: uppercase;
+  transition: transform 0.3s ease;
+}
+
+.form_details:hover {
+  transform: scale(1.05);
 }
 
 .input {
-  width: 245px;
-  min-height: 45px;
+  width: 100%;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
   color: #fff;
+  font-size: 1rem;
+  font-family: 'Inter', sans-serif;
   outline: none;
-  transition: 0.35s;
-  padding: 0px 7px;
-  background-color: #212121;
-  border-radius: 6px;
-  border: 2px solid #212121;
-  box-shadow: 6px 6px 10px rgba(0, 0, 0, 1),
-    1px 1px 10px rgba(255, 255, 255, 0.6);
+  transition: all 0.3s ease;
+  box-sizing: border-box; /* Ensure padding doesn't affect width */
 }
 
 .input::placeholder {
-  color: #999;
-}
-
-.input:focus.input::placeholder {
-  transition: 0.3s;
-  opacity: 0;
+  color: rgba(255, 255, 255, 0.3);
+  font-weight: 300;
 }
 
 .input:focus {
-  transform: scale(1.05);
-  box-shadow: 6px 6px 10px rgba(0, 0, 0, 1),
-    1px 1px 10px rgba(255, 255, 255, 0.6), inset 2px 2px 10px rgba(0, 0, 0, 1),
-    inset -1px -1px 5px rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
 }
 
 .btn {
-  padding: 10px 35px;
-  cursor: pointer;
-  background-color: #212121;
-  border-radius: 6px;
-  border: 2px solid #212121;
-  box-shadow: 6px 6px 10px rgba(0, 0, 0, 1),
-    1px 1px 10px rgba(255, 255, 255, 0.6);
+  width: 100%;
+  padding: 15px;
+  margin-top: 10px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
   color: #fff;
-  font-size: 15px;
-  font-weight: bold;
-  transition: 0.35s;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .btn:hover {
-  transform: scale(1.05);
-  box-shadow: 6px 6px 10px rgba(0, 0, 0, 1),
-    1px 1px 10px rgba(255, 255, 255, 0.6), inset 2px 2px 10px rgba(0, 0, 0, 1),
-    inset -1px -1px 5px rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
 }
 
-.btn:focus {
-  transform: scale(1.05);
-  box-shadow: 6px 6px 10px rgba(0, 0, 0, 1),
-    1px 1px 10px rgba(255, 255, 255, 0.6), inset 2px 2px 10px rgba(0, 0, 0, 1),
-    inset -1px -1px 5px rgba(255, 255, 255, 0.6);
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
 }
 
-.form .switch {
-  font-size: 13px;
-  color: white;
+.switch {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 300;
 }
 
-.form .switch .signup_tog {
-  font-weight: 700;
-  cursor: pointer;
-  text-decoration: underline;
-  color: rgb(230, 228, 228);
+.signup_tog {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 5px;
+  position: relative;
+  transition: all 0.3s ease;
 }
 
-.container #signup_toggle {
-  display: none;
+.signup_tog::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: #fff;
+  transition: width 0.3s ease;
 }
 
-.container #signup_toggle:checked + .form {
-  transform: rotateY(-180deg);
+.signup_tog:hover::after {
+  width: 100%;
+}
+
+.signup_tog:hover {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }

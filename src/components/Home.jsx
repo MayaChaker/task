@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Home.css";
 function Home() {
+  const navigate = useNavigate();
   const email = localStorage.getItem("email");
   const isAdmin = localStorage.getItem("isAdmin") === "true";
   const [users, setUser] = useState([]);
@@ -27,7 +29,10 @@ function Home() {
       <div className="card">
         <div className="ray"></div>
         <div className="text">WELCOME</div>
-        <div>{email}</div>
+        <div className="user-email">{email}</div>
+        <button className="elegant-btn" onClick={() => navigate("/login")}>
+          Go to Login
+        </button>
         <div className="line topl"></div>
         <div className="line leftl"></div>
         <div className="line bottoml"></div>
